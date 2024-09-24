@@ -1,0 +1,23 @@
+<div class="p-1 offset-md-10 col-md-2 custom-container">
+  <a href="{{botaolink}}" class="btn btn-success custom-button btn-sm">{{nomebotao}}</a>
+</div>
+
+<hr />
+{{status}}
+<div class="table-responsive">
+  <table class="table table-striped table-light table-hover align-middle">
+    <thead class="table-light">
+      <tr>
+        <th>#ID</th>
+        <th>Nome</th>
+        <th>Data Cadastro</th>
+        <th class="col-2">Ação</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      {{itens}}
+    </tbody>
+    <tfoot></tfoot>
+  </table>
+  {{pagination}}
+</div>

@@ -18,7 +18,7 @@ class RequireAdminLogout
     {
         #VERIFICA SE O USUÁRIO ESTÁ LOGADO
         if (SessionAdminLogin::isLogged()) {
-            $request->getRouter()->redirect('/');
+            $request->getRouter()->redirect('/home');
         }
         #CONTINUA A EXECUÇÃO
         return $next($request);

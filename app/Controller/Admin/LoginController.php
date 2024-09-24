@@ -35,11 +35,11 @@ class LoginController extends PageController
     {
         #POST VARS
         $postVars = $request->getPostVars();
-        $email = $postVars['email'] ?? '';
+        $login = $postVars['login'] ?? '';
         $senha = $postVars['senha'] ?? '';
 
         #BUSCA USUÁRIO POR EMAIL
-        $obUser = User::getByEmail($email);
+        $obUser = User::getByLogin($login);
 
         if (!$obUser instanceof User) {
             return self::getLogin($request, 'E-mail ou senha inválidos');

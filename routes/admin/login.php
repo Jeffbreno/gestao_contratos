@@ -15,8 +15,13 @@ $obRouter->get('/', [
 
 
 //ROTA LOGIN (POST)
-$obRouter->get('/login', [
-    
+$obRouter->post('/', [
+    'middlewares' => [
+        'required-admin-logout'
+    ],
+    function ($request) {
+        return new Response(200, Admin\LoginController::setLogin($request));
+    }
 ]);
 
 //ROTA LOGOUT

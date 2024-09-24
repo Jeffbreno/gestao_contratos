@@ -15,29 +15,36 @@ class PageController
     private static array $modules = [
         'home' => [
             'label' => 'Home',
-            'link' => URL . '/pages',
+            'link' => URL . '/home',
             'data-feather' => 'sliders'
-
         ],
-        'inscritos' => [
-            'label' => 'Inscritos',
-            'link' => URL . '/pages/inscritos',
+        'banco' => [
+            'label' => 'Bancos',
+            'link' => URL . '/bancos',
             'data-feather' => 'book'
-
+        ],
+        'convenio' => [
+            'label' => 'Convênios',
+            'link' => URL . '/convenios',
+            'data-feather' => 'activity'
+        ],
+        'convenio_servico' => [
+            'label' => 'Convênios e Serviços',
+            'link' => URL . '/convenios-servicos',
+            'data-feather' => 'file-text'
+        ],
+        'contrato' => [
+            'label' => 'Contratos',
+            'link' => URL . '/contratos',
+            'data-feather' => 'file-text'
         ],
         'users' => [
             'label' => 'Usuários',
             'link' => URL . '/pages/users',
             'data-feather' => 'user'
-
         ],
-        'categorias' => [
-            'label' => 'Links de Incrição',
-            'link' => URL . '/pages/categorias',
-            'data-feather' => 'link'
-
-        ]
     ];
+    
 
     /**
      * Método responsável por retornar um link da paginação

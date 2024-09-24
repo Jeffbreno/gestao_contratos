@@ -13,7 +13,7 @@ class AlertController
      */
     public static function getSuccess($message): string
     {
-        return View::render('admin/alert/status', [
+        return View::render('pages/alert/status', [
             'tipo' => 'success',
             'message' => $message
         ]);
@@ -25,7 +25,7 @@ class AlertController
      */
     public static function getError($message): string
     {
-        return View::render('admin/alert/status', [
+        return View::render('pages/alert/status', [
             'tipo' => 'danger',
             'message' => $message
         ]);
@@ -37,7 +37,7 @@ class AlertController
      */
     public static function getWarning($message): string
     {
-        return View::render('admin/alert/status', [
+        return View::render('pages/alert/status', [
             'tipo' => 'warning',
             'message' => $message
         ]);

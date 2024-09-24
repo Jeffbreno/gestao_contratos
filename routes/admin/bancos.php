@@ -4,92 +4,92 @@ use App\Http\Response;
 use App\Controller\Admin;
 
 //ROTA DA LISTAGEM DE DEPOIMENTOS
-$obRouter->get('/page/inscritos', [
+$obRouter->get('/bancos', [
     'middlewares' => [
         'required-admin-login'
     ],
     function ($request) {
-        return new Response(200, Admin\InscricoesController::getInscrito($request));
+        return new Response(200, Admin\BancosController::getBancos($request));
     }
 ]);
 
 //ROTA DA LISTAGEM DE DEPOIMENTOS
-$obRouter->get('/page/inscritos/visualizar/{id}', [
+$obRouter->get('/bancos/visualizar/{id}', [
     'middlewares' => [
         'required-admin-login'
     ],
     function ($id) {
-        return new Response(200, Admin\InscricoesController::getModal($id));
+        return new Response(200, Admin\BancosController::getModal($id));
     }
 ]);
 
 //ROTA DE CADASTRO DE DEPOIMENTOS
-$obRouter->get('/page/inscritos/new', [
+$obRouter->get('/bancos/new', [
     'middlewares' => [
         'required-admin-login'
     ],
     function ($request) {
-        return new Response(200, Admin\InscricoesController::getNewInscrito($request));
+        return new Response(200, Admin\BancosController::getNewBanco($request));
     }
 ]);
 
 //ROTA DE CADASTRO DE DEPOIMENTOS
-$obRouter->post('/page/inscritos/new', [
+$obRouter->post('/bancos/new', [
     'middlewares' => [
         'required-admin-login'
     ],
     function ($request) {
-        return new Response(200, Admin\InscricoesController::setNewInscrito($request));
+        return new Response(200, Admin\BancosController::setNewBanco($request));
     }
 ]);
 
 //ROTA DE EDIÇÃO DE DEPOIMENTOS
-$obRouter->get('/page/inscritos/{id}/edit', [
+$obRouter->get('/bancos/{id}/edit', [
     'middlewares' => [
         'required-admin-login'
     ],
     function ($request, $id) {
-        return new Response(200, Admin\InscricoesController::getEditInscrito($request, $id));
+        return new Response(200, Admin\BancosController::getEditBanco($request, $id));
     }
 ]);
 
 
 //ROTA DE EDIÇÃO DE DEPOIMENTOS
-$obRouter->post('/page/inscritos/{id}/edit', [
+$obRouter->post('/bancos/{id}/edit', [
     'middlewares' => [
         'required-admin-login'
     ],
     function ($request, $id) {
-        return new Response(200, Admin\InscricoesController::setEditInscrito($request, $id));
+        return new Response(200, Admin\BancosController::setEditBanco($request, $id));
     }
 ]);
 
 //ROTA DE EXCLUSÃO DE DEPOIMENTOS
-$obRouter->get('/page/inscritos/{id}/delete', [
+$obRouter->get('/bancos/{id}/delete', [
     'middlewares' => [
         'required-admin-login'
     ],
     function ($request, $id) {
-        return new Response(200, Admin\InscricoesController::getDeleteInscrito($request, $id));
+        return new Response(200, Admin\BancosController::getDeleteBanco($request, $id));
     }
 ]);
 
 //ROTA DE EXCLUSÃO DE DEPOIMENTOS
-$obRouter->post('/page/inscritos/{id}/delete', [
+$obRouter->post('/bancos/{id}/delete', [
     'middlewares' => [
         'required-admin-login'
     ],
     function ($request, $id) {
-        return new Response(200, Admin\InscricoesController::setDeleteInscrito($request, $id));
+        return new Response(200, Admin\BancosController::setDeleteBanco($request, $id));
     }
 ]);
 
 //ROTA DE EXCLUSÃO DE DEPOIMENTOS
-$obRouter->get('/page/inscritos/{id}/pagamento', [
+$obRouter->get('/page/bancos/{id}/pagamento', [
     'middlewares' => [
         'required-admin-login'
     ],
     function ($request, $id) {
-        return new Response(200, Admin\InscricoesController::setStatusPag($request, $id));
+        return new Response(200, Admin\BancosController::setStatusPag($request, $id));
     }
 ]);

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    protected $table = 'usuarios';
+    protected $table = 'tb_usuario';
     //CAMPOS USADOS NA TABELA DE DADOS
     protected $fillable = ['nome', 'email', 'senha', 'id_alteracao'];
     public $timestamps = true;
@@ -22,11 +22,11 @@ class User extends Model
     }
 
     /**
-     * Método reponsavel por buscar usuário pleo email
+     * Método reponsavel por buscar usuário através login
      */
-    public static function getByEmail(string $email): mixed
+    public static function getByLogin(string $login): mixed
     {
         #BUSCA USUÁRIO POR EMAIL
-        return User::where('email', $email)->first();
+        return User::where('login', $login)->first();
     }
 }

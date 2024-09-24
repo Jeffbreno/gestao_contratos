@@ -21,7 +21,7 @@ class RequireAdminLogin
     {
         #VERIFICA SE O USUÁRIO ESTÁ LOGADO
         if (!SessionAdminLogin::isLogged()) {
-            $request->getRouter()->redirect('/login');
+            $request->getRouter()->redirect('/');
         }
         #CONTINUA A EXECUÇÃO
         return $next($request);
