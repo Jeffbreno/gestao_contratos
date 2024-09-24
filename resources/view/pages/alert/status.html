@@ -1,0 +1,17 @@
+<script>
+  window.onload = function () {
+    // Adicione a classe "show" para mostrar o alerta e iniciar a animação de fade
+    $("#alert").addClass("show");
+
+    // Após algum tempo (por exemplo, 3 segundos), remova o alerta
+    setTimeout(function () {
+      // Remova a classe "show" para esconder o alerta e continuar a animação de fade
+      $("#alert").removeClass("show");
+    }, 3000); // 3000 milissegundos = 3 segundos
+  };
+</script>
+
+<div style="top: -60px" id="alert" class="fade alert alert-{{tipo}} alert-dismissible col-6 position-absolute start-0" role="alert">
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  <div class="alert-message">{{message}}</div>
+</div>

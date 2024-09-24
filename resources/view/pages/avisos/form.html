@@ -1,0 +1,110 @@
+{{status}}
+<form method="post" role="form" class="needs-validation" novalidate>
+  <div class="form-group">
+    <label for="nome">Nome Completo</label>
+    <input type="text" name="nome" class="form-control" id="nome" placeholder="Digite seu Nome Completo" value="{{nome}}" required />
+    <div class="invalid-feedback">Campo obrigatorio.</div>
+  </div>
+  <div class="form-group mt-3">
+    <label for="email">E-mail</label>
+    <input type="email" class="form-control" name="email" id="email" placeholder="nome@exemplo.com" value="{{email}}" required />
+    <div class="invalid-feedback">Por favor, insira um email válido.</div>
+  </div>
+  <div class="row mt-3">
+    <div class="form-group col-lg-3">
+      <label for="cpf">CPF</label>
+      <input name="cpf" type="text" class="form-control" id="cpf" maxlength="14" placeholder="Digite seu CPF" value="{{cpf}}" required />
+      <div class="invalid-feedback">Campo obrigatorio.</div>
+    </div>
+    <div class="form-group col-lg-3">
+      <label for="sexo">Gênero</label>
+      <select name="genero" id="sexo" class="form-select">
+        {{genero}}
+      </select>
+    </div>
+  </div>
+  <div class="form-group col-md-6 mt-3">
+    <label for="tamanhoCamisa">Categoria da inscrição:</label>
+    <select name="categoria" class="form-select" id="categoria">
+      {{categoria}}
+    </select>
+  </div>
+  <div class="form-group mt-3 col-lg-3">
+    <label for="data_nascimento">Data de Nascimento</label>
+    <input name="dt_nascimento" type="date" class="form-control" id="data_nascimento" value="{{dt_nascimento}}" required />
+    <div class="invalid-feedback">Campo obrigatorio.</div>
+  </div>
+  <div class="form-group col-lg-3 mt-3">
+    <label for="celular">Celular</label>
+    <input name="celular" type="text" class="form-control" id="celular" placeholder="Celular" value="{{celular}}" required />
+    <div class="invalid-feedback">Campo obrigatorio.</div>
+  </div>
+  <div class="row mt-3">
+    <div class="form-group col-lg-10">
+      <label for="logradouro">Logradouro</label>
+      <input name="logradouro" type="text" class="form-control" id="logradouro" placeholder="Logradouro" value="{{logradouro}}" required />
+      <div class="invalid-feedback">Campo obrigatorio.</div>
+    </div>
+    <div class="form-group col-lg-2">
+      <label for="numero">Número</label>
+      <input name="numero" type="text" class="form-control" id="numero" placeholder="Número" value="{{numero}}" />
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="form-group col-lg-6">
+      <label for="complemento">Complemento</label>
+      <input name="complemento" type="text" class="form-control" id="complemento" placeholder="Complemento" value="{{complemento}}" />
+    </div>
+    <div class="form-group col-lg-6">
+      <label for="bairro">Bairro</label>
+      <input name="bairro" type="text" class="form-control" id="bairro" placeholder="Bairro" value="{{bairro}}" required />
+      <div class="invalid-feedback">Campo obrigatorio.</div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="form-group col-lg-6">
+      <label for="cidade">Cidade</label>
+      <input name="cidade" type="text" class="form-control" id="cidade" placeholder="Cidade" value="{{cidade}}" required />
+      <div class="invalid-feedback">Campo obrigatorio.</div>
+    </div>
+    <div class="form-group col-lg-2">
+      <label for="uf">UF</label>
+      <input name="uf" type="text" class="form-control" id="uf" placeholder="UF" value="{{uf}}" required />
+      <div class="invalid-feedback">Campo obrigatorio.</div>
+    </div>
+  </div>
+
+  <div class="form-group col-md-2 mt-3">
+    <label for="distancia">Distância</label>
+    <select name="distancia" class="form-select">
+      {{distancia}}
+    </select>
+  </div>
+
+  <div class="form-group col-md-3 mt-3">
+    <label for="tamanhoCamisa">Camisa unissex tamanho:</label>
+    <select name="camisa" class="form-select" id="tamanhoCamisa">
+      {{camisa}}
+    </select>
+  </div>
+
+  <div class="form-group mt-3 mb-5">
+    <label for="equipe">Equipe</label>
+    <input type="text" class="form-control" name="equipe" placeholder="Caso não tenha uma equipe, favor escrever 'não tenho equipe'" value="{{equipe}}" required />
+  </div>
+  <div class="invalid-feedback">Campo obrigatorio.</div>
+
+  <button type="submit" class="btn btn-success">Enviar</button>
+  <a class="btn btn-warning" href="{{URL}}/admin/inscritos" role="button">Cancelar</a>
+</form>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script type="text/javascript" src="{{URL}}/resources/assets/js/validate.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $("#cpf").mask("000.000.000-00", { reverse: true });
+    $("#celular").mask("(00) 00000-0000");
+  });
+</script>

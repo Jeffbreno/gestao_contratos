@@ -1,0 +1,26 @@
+{{status}}
+<form method="post">
+
+  <div class="mb-3">
+    <label for="" class="form-label">Nome</label>
+    <input type="text" name="nome" class="form-control" placeholder="Digite o nome" value="{{nome}}" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="" class="form-label">Login</label>
+    <input type="text" name="login" class="form-control" placeholder="Digite o usuário " value="{{login}}" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="" class="form-label">E-mail</label>
+    <input type="email" name="email" class="form-control" placeholder="email@dominio.com " value="{{email}}" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="" class="form-label">Senha</label>
+    <input type="password" name="senha" class="form-control" placeholder="*********">
+  </div>
+
+  <button type="submit" class="btn btn-success">Enviar</button>
+  <a class="btn btn-warning" href="{{URL}}/admin/users" role="button">Cancelar</a>
+</form>

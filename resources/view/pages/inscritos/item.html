@@ -1,0 +1,29 @@
+<tr class="text-sm">
+  <td>{{id}}</td>
+  <td>{{nome}}</td>
+  <td>{{email}}</td>
+  <td>{{cpf}}</td>
+  <td>{{dt_cadastro}}</td>
+  <td>
+    <div class="row">
+      <a
+        style="--bs-btn-padding-y: 0.25rem; --bs-btn-padding-x: 0.5rem; --bs-btn-font-size: 0.75rem"
+        class="btn btn-{{status_pag_cor}} text-whity"
+        href="{{URL}}/admin/inscritos/{{id}}/pagamento?status={{status_pag}}&page={{currentPage}}">
+        {{status_desc}}
+        <i data-feather="dollar-sign"></i>
+      </a>
+    </div>
+  </td>
+  <td>
+    <a href="{{URL}}/admin/inscritos/{{id}}/edit">
+      <i data-feather="edit" class="text-primary"></i>
+    </a>
+    <a class="ms-3" href="{{URL}}/admin/inscritos/{{id}}/delete?page={{currentPage}}">
+      <i data-feather="trash-2" class="text-danger"></i>
+    </a>
+    <a class="ms-3 btn-visualizar" data-id="{{id}}" data-bs-toggle="modal" data-bs-target="#modal-confirmacao" href="#">
+      <i data-feather="eye" class="text-warning"></i>
+    </a>
+  </td>
+</tr>
