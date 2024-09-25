@@ -31,16 +31,21 @@ class PageController
         'convenio_servico' => [
             'label' => 'Convênios e Serviços',
             'link' => URL . '/convenios-servicos',
-            'data-feather' => 'file-text'
+            'data-feather' => 'package'
         ],
         'contrato' => [
             'label' => 'Contratos',
             'link' => URL . '/contratos',
+            'data-feather' => 'folder'
+        ],
+        'reports' => [
+            'label' => 'Relatórios',
+            'link' => URL . '/relatorios',
             'data-feather' => 'file-text'
         ],
         'users' => [
             'label' => 'Usuários',
-            'link' => URL . '/pages/users',
+            'link' => URL . '/users',
             'data-feather' => 'user'
         ],
     ];

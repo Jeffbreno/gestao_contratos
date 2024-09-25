@@ -58,7 +58,7 @@ class UsersController extends PageController
         // $Pagination = Page::getLinkPages($request, $queryParams, $result);
 
         foreach ($obPagination as $users) {
-            $resultItems .= View::render('admin/users/item', [
+            $resultItems .= View::render('pages/users/item', [
                 'id' => $users->id,
                 'nome' => $users->nome,
                 'login' => $users->login,
@@ -77,7 +77,7 @@ class UsersController extends PageController
     public static function getUsers(Request $request): string
     {
         #CONTEÚDO DA HOME DE USUÁRIOS
-        $content = View::render('admin/users/index', [
+        $content = View::render('pages/users/index', [
             'itens' => self::getUserItems($request, $obPagination),
             'pagination' => parent::getPagination($request, $obPagination),
             'status' => self::getStatus($request),
@@ -95,7 +95,7 @@ class UsersController extends PageController
     public static function getNewUsers(Request $request): string
     {
         #CONTEÚDO DA HOME DE USUÁRIOS
-        $content = View::render('admin/users/form', [
+        $content = View::render('pages/users/form', [
             'nome' => null,
             'email' => null,
             'login' => null,
@@ -118,7 +118,7 @@ class UsersController extends PageController
         $obUser =  EntityUser::getByEmail($email);
 
         if ($obUser instanceof EntityUser) {
-            return $request->getRouter()->redirect('/admin/users/new?status=duplicated');
+            return $request->getRouter()->redirect('/users/new?status=duplicated');
         }
 
         $obUser = new EntityUser;
@@ -129,7 +129,7 @@ class UsersController extends PageController
 
         $obUser->save();
 
-        return $request->getRouter()->redirect('/admin/users/' . $obUser->id . '/edit?status=created');
+        return $request->getRouter()->redirect('/users/' . $obUser->id . '/edit?status=created');
         //RETORNA A PAGINA DE USUÁRIOS
         //return self::getusers($request);
     }
@@ -143,11 +143,11 @@ class UsersController extends PageController
         $obUser = EntityUser::getById($id);
 
         if (!$obUser instanceof EntityUser) {
-            $request->getRouter()->redirect('/admin/users');
+            $request->getRouter()->redirect('/users');
         }
 
         #CONTEÚDO DA HOME DE USUÁRIOS
-        $content = View::render('admin/users/form', [
+        $content = View::render('pages/users/form', [
             'title' => 'Editar usuário',
             'nome' => $obUser->nome,
             'login'=> $obUser->login,
@@ -162,7 +162,7 @@ class UsersController extends PageController
         $obUser = EntityUser::getById($id);
 
         if (!$obUser instanceof EntityUser) {
-            $request->getRouter()->redirect('/admin/users');
+            $request->getRouter()->redirect('/users');
         }
 
         //DADOS DO POST
@@ -175,7 +175,7 @@ class UsersController extends PageController
         $obUserEmail =  EntityUser::getByEmail($email);
 
         if ($obUserEmail instanceof EntityUser && $obUserEmail->id != $id) {
-            return $request->getRouter()->redirect('/admin/users/' . $id . 'edit?status=duplicated');
+            return $request->getRouter()->redirect('/users/' . $id . 'edit?status=duplicated');
         }
 
         #ATUALIZA A INSTANCIA
@@ -185,14 +185,14 @@ class UsersController extends PageController
         #VERIFICAR SE SENHA FOI DIGITADA
         if (!empty($senha)) {
             if (strlen($senha) <= 5) {
-                return $request->getRouter()->redirect('/admin/users/' . $obUser->id . '/edit?status=errorSenha');
+                return $request->getRouter()->redirect('/users/' . $obUser->id . '/edit?status=errorSenha');
             }
             $obUser->senha = password_hash($senha, PASSWORD_DEFAULT);
         }
 
         $obUser->update();
 
-        return $request->getRouter()->redirect('/admin/users/' . $obUser->id . '/edit?status=updated');
+        return $request->getRouter()->redirect('/users/' . $obUser->id . '/edit?status=updated');
     }
 
     /**
@@ -204,11 +204,11 @@ class UsersController extends PageController
         $obUser = EntityUser::getById($id);
 
         if (!$obUser instanceof EntityUser) {
-            $request->getRouter()->redirect('/admin/users');
+            $request->getRouter()->redirect('/users');
         }
 
         #CONTEÚDO DA HOME DE USUÁRIOS
-        $content = View::render('admin/users/delete', [
+        $content = View::render('pages/users/delete', [
             'title' => 'Excluir usuário',
             'nome' => $obUser->nome,
             'email' => $obUser->email,
@@ -226,12 +226,12 @@ class UsersController extends PageController
         $obUser = EntityUser::getById($id);
 
         if (!$obUser instanceof EntityUser) {
-            $request->getRouter()->redirect('/admin/users');
+            $request->getRouter()->redirect('/users');
         }
 
         #EXCLUI O REGISTRO
         $obUser->delete();
 
-        return $request->getRouter()->redirect('/admin/users?status=deleted');
+        return $request->getRouter()->redirect('/users?status=deleted');
     }
 }

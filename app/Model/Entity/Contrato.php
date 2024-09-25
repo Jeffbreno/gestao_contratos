@@ -12,7 +12,7 @@ class Contrato extends Model
     public $timestamps = false;
 
     // Relação com Tb_convenio_servico (muitos contratos pertencem a um serviço de convênio)
-    public function convenioServico()
+    public function convenioServicos()
     {
         return $this->belongsTo(ConvenioServico::class, 'convenio_servico', 'codigo');
     }

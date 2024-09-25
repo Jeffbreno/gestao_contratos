@@ -9,5 +9,6 @@ include __DIR__ . '/admin/login.php';
 include __DIR__ . '/admin/bancos.php';
 include __DIR__ . '/admin/convenios.php';
 include __DIR__ . '/admin/convenios_servicos.php';
+include __DIR__ . '/admin/contratos.php';
 
 include __DIR__ . '/admin/users.php';

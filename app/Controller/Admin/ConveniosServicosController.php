@@ -45,7 +45,7 @@ class ConveniosServicosController extends PageController
         $resultItems = '';
 
         // RESULTADO DA PÁGINA
-        $queryServicos = EntityConvenioServico::with('convenio')->orderBy('codigo', 'desc')->get();
+        $queryServicos = EntityConvenioServico::with('convenios')->orderBy('codigo', 'desc')->get();
 
         // Seta e Retorna itens por página
         $obPagination = PageController::setPaginator($request, $queryServicos, 10);
@@ -54,7 +54,7 @@ class ConveniosServicosController extends PageController
             $resultItems .= View::render('pages/convenios_servicos/item', [
                 'codigo' => $servico->codigo,
                 'servico' => $servico->servico,
-                'convenio' => $servico->convenio->convenio,
+                'convenio' => $servico->convenios->convenio,
             ]);
         }
 

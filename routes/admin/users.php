@@ -4,7 +4,7 @@ use App\Http\Response;
 use App\Controller\Admin;
 
 //ROTA DA LISTAGEM DE USUÁRIOS
-$obRouter->get('/page/users', [
+$obRouter->get('/users', [
     'middlewares' => [
         'required-admin-login'
     ],
@@ -14,7 +14,7 @@ $obRouter->get('/page/users', [
 ]);
 
 //ROTA DE CADASTRO DE USUÁRIO
-$obRouter->get('/page/users/new', [
+$obRouter->get('/users/new', [
     'middlewares' => [
         'required-admin-login'
     ],
@@ -24,7 +24,7 @@ $obRouter->get('/page/users/new', [
 ]);
 
 //ROTA DE CADASTRO DE USUÁRIO
-$obRouter->post('/page/users/new', [
+$obRouter->post('/users/new', [
     'middlewares' => [
         'required-admin-login'
     ],
@@ -34,7 +34,7 @@ $obRouter->post('/page/users/new', [
 ]);
 
 //ROTA DE EDIÇÃO DE USUÁRIO
-$obRouter->get('/page/users/{id}/edit', [
+$obRouter->get('/users/{id}/edit', [
     'middlewares' => [
         'required-admin-login'
     ],
@@ -45,7 +45,7 @@ $obRouter->get('/page/users/{id}/edit', [
 
 
 //ROTA DE EDIÇÃO DE USUÁRIO
-$obRouter->post('/page/users/{id}/edit', [
+$obRouter->post('/users/{id}/edit', [
     'middlewares' => [
         'required-admin-login'
     ],
@@ -55,7 +55,7 @@ $obRouter->post('/page/users/{id}/edit', [
 ]);
 
 //ROTA DE EXCLUSÃO DE USUÁRIO
-$obRouter->get('/page/users/{id}/delete', [
+$obRouter->get('/users/{id}/delete', [
     'middlewares' => [
         'required-admin-login'
     ],
@@ -65,7 +65,7 @@ $obRouter->get('/page/users/{id}/delete', [
 ]);
 
 //ROTA DE EXCLUSÃO DE USUÁRIO
-$obRouter->post('/page/users/{id}/delete', [
+$obRouter->post('/users/{id}/delete', [
     'middlewares' => [
         'required-admin-login'
     ],
