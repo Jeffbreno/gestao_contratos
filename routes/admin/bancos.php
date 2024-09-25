@@ -3,7 +3,7 @@
 use App\Http\Response;
 use App\Controller\Admin;
 
-//ROTA DA LISTAGEM DE DEPOIMENTOS
+//ROTA DA LISTAGEM DE BANCO
 $obRouter->get('/bancos', [
     'middlewares' => [
         'required-admin-login'
@@ -14,7 +14,7 @@ $obRouter->get('/bancos', [
 ]);
 
 
-//ROTA DE CADASTRO DE DEPOIMENTOS
+//ROTA DE CADASTRO DE BANCO
 $obRouter->get('/bancos/new', [
     'middlewares' => [
         'required-admin-login'
@@ -24,7 +24,7 @@ $obRouter->get('/bancos/new', [
     }
 ]);
 
-//ROTA DE CADASTRO DE DEPOIMENTOS
+//ROTA DE CADASTRO DE BANCO
 $obRouter->post('/bancos/new', [
     'middlewares' => [
         'required-admin-login'
@@ -34,7 +34,7 @@ $obRouter->post('/bancos/new', [
     }
 ]);
 
-//ROTA DE EDIÇÃO DE DEPOIMENTOS
+//ROTA DE EDIÇÃO DE BANCO
 $obRouter->get('/bancos/{id}/edit', [
     'middlewares' => [
         'required-admin-login'
@@ -45,7 +45,7 @@ $obRouter->get('/bancos/{id}/edit', [
 ]);
 
 
-//ROTA DE EDIÇÃO DE DEPOIMENTOS
+//ROTA DE EDIÇÃO DE BANCO
 $obRouter->post('/bancos/{id}/edit', [
     'middlewares' => [
         'required-admin-login'
@@ -55,7 +55,7 @@ $obRouter->post('/bancos/{id}/edit', [
     }
 ]);
 
-//ROTA DE EXCLUSÃO DE DEPOIMENTOS
+//ROTA DE EXCLUSÃO DE BANCO
 $obRouter->get('/bancos/{id}/delete', [
     'middlewares' => [
         'required-admin-login'
@@ -65,7 +65,7 @@ $obRouter->get('/bancos/{id}/delete', [
     }
 ]);
 
-//ROTA DE EXCLUSÃO DE DEPOIMENTOS
+//ROTA DE EXCLUSÃO DE BANCO
 $obRouter->post('/bancos/{id}/delete', [
     'middlewares' => [
         'required-admin-login'
@@ -75,7 +75,7 @@ $obRouter->post('/bancos/{id}/delete', [
     }
 ]);
 
-//ROTA DE EXCLUSÃO DE DEPOIMENTOS
+//ROTA DE EXCLUSÃO DE BANCO
 $obRouter->get('/page/bancos/{id}/pagamento', [
     'middlewares' => [
         'required-admin-login'
