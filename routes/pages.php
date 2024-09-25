@@ -11,4 +11,6 @@ include __DIR__ . '/admin/convenios.php';
 include __DIR__ . '/admin/convenios_servicos.php';
 include __DIR__ . '/admin/contratos.php';
 
+include __DIR__ . '/admin/reports.php';
+
 include __DIR__ . '/admin/users.php';

@@ -1,0 +1,78 @@
+<div class="tab tab-primary">
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a
+        class="nav-link active"
+        href="#primary-tab-1"
+        data-bs-toggle="tab"
+        role="tab"
+        aria-selected="true"
+        >Relatório Contratos</a
+      >
+    </li>
+    <li class="nav-item" role="presentation">
+      <a
+        class="nav-link"
+        href="#primary-tab-2"
+        data-bs-toggle="tab"
+        role="tab"
+        aria-selected="false"
+        tabindex="-1"
+        >Agrupado</a
+      >
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active show" id="primary-tab-1" role="tabpanel">
+      <div class="table-responsive">
+        <table class="table table-striped table-light table-hover align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Banco</th>
+              <th>Verba</th>
+              <th>Código Contrato</th>
+              <th>Data Inclusão</th>
+              <th>Valor</th>
+              <th>Prazo</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            {{itens}}
+          </tbody>
+          <tfoot></tfoot>
+        </table>
+        {{pagination}}
+      </div>
+    </div>
+    <div class="tab-pane" id="primary-tab-2" role="tabpanel">
+      <h4 class="tab-title">Another one</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+        ligula eget dolor tellus eget condimentum rhoncus. Aenean massa. Cum
+        sociis natoque penatibus et magnis neque dis parturient montes, nascetur
+        ridiculus mus.
+      </p>
+      <p>
+        Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+        Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+        aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet
+        a, venenatis vitae, justo.
+      </p>
+    </div>
+    <div class="tab-pane" id="primary-tab-3" role="tabpanel">
+      <h4 class="tab-title">One more</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+        ligula eget dolor tellus eget condimentum rhoncus. Aenean massa. Cum
+        sociis natoque penatibus et magnis neque dis parturient montes, nascetur
+        ridiculus mus.
+      </p>
+      <p>
+        Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
+        Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
+        aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet
+        a, venenatis vitae, justo.
+      </p>
+    </div>
+  </div>
+</div>

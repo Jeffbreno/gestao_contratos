@@ -40,7 +40,7 @@ class PageController
         ],
         'reports' => [
             'label' => 'Relatórios',
-            'link' => URL . '/relatorios',
+            'link' => URL . '/reports',
             'data-feather' => 'file-text'
         ],
         'users' => [
