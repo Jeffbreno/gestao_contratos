@@ -33,6 +33,8 @@ class ContratosController extends PageController
             case 'error':
                 return AlertController::getError('ERRO ao tentar atualizar os dados!');
         }
+
+        return '';
     }
 
     /** 
@@ -118,7 +120,7 @@ class ContratosController extends PageController
         return parent::getPainel('Cadastrar Novo Contrato', $content, 'contratos');
     }
 
-    public static function setNewContrato(Request $request): string
+    public static function setNewContrato(Request $request): void
     {
         // DADOS DO POST
         $postVars = $request->getPostVars();
@@ -140,9 +142,9 @@ class ContratosController extends PageController
         // CADASTRAR DADOS
         try {
             $obContrato->save();
-            return $request->getRouter()->redirect('/contratos/' . $obContrato->codigo . '/edit?status=created');
+            $request->getRouter()->redirect('/contratos/' . $obContrato->codigo . '/edit?status=created');
         } catch (\Exception $e) {
-            return $request->getRouter()->redirect('/contratos/new?status=error');
+            $request->getRouter()->redirect('/contratos/new?status=error');
         }
     }
 

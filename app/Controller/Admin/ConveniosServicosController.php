@@ -118,7 +118,7 @@ class ConveniosServicosController extends PageController
         return parent::getPainel('Cadastrar Novo Serviço', $content, 'convenios-servicos');
     }
 
-    public static function setNewConvenioServico(Request $request): string
+    public static function setNewConvenioServico(Request $request): void
     {
         // DADOS DO POST
         $postVars = $request->getPostVars();
@@ -132,9 +132,9 @@ class ConveniosServicosController extends PageController
         // CADASTRAR DADOS
         try {
             $obServico->save();
-            return $request->getRouter()->redirect('/convenios-servicos/' . $obServico->codigo . '/edit?status=created');
+            $request->getRouter()->redirect('/convenios-servicos/' . $obServico->codigo . '/edit?status=created');
         } catch (\Exception $e) {
-            return $request->getRouter()->redirect('/convenios-servicos/new?status=error');
+            $request->getRouter()->redirect('/convenios-servicos/new?status=error');
         }
     }
 

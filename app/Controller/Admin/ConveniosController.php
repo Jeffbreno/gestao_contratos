@@ -33,6 +33,8 @@ class ConveniosController extends PageController
             case 'error':
                 return AlertController::getError('ERRO ao tentar atualizar os dados!');
         }
+
+        return '';
     }
 
     /** 

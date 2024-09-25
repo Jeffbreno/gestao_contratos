@@ -34,6 +34,8 @@ class BancosController extends PageController
             case 'error':
                 return AlertController::getError('ERRO ao tentar atualizar dados!');
         }
+
+        return '';
     }
 
     /** 
