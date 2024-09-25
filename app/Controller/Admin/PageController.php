@@ -18,22 +18,22 @@ class PageController
             'link' => URL . '/home',
             'data-feather' => 'sliders'
         ],
-        'banco' => [
+        'bancos' => [
             'label' => 'Bancos',
             'link' => URL . '/bancos',
             'data-feather' => 'book'
         ],
-        'convenio' => [
+        'convenios' => [
             'label' => 'Convênios',
             'link' => URL . '/convenios',
             'data-feather' => 'activity'
         ],
-        'convenio_servico' => [
+        'convenios-servicos' => [
             'label' => 'Convênios e Serviços',
             'link' => URL . '/convenios-servicos',
             'data-feather' => 'package'
         ],
-        'contrato' => [
+        'contratos' => [
             'label' => 'Contratos',
             'link' => URL . '/contratos',
             'data-feather' => 'folder'
@@ -49,7 +49,7 @@ class PageController
             'data-feather' => 'user'
         ],
     ];
-    
+
 
     /**
      * Método responsável por retornar um link da paginação
@@ -82,7 +82,7 @@ class PageController
      * Método generico para páginação
      * 
      */
-    public static function setPaginator(Request $request, Collection $items, int $perPage = 10)
+    public static function setPaginator(Request $request, Collection $items, int $perPage = 10): LengthAwarePaginator
     {
         $options = [];
         $options['path'] = $options['path'] ?? $request->getRouter()->getCurrentUrl();
@@ -104,10 +104,10 @@ class PageController
         return $paginator->withPath($options['path']);
     }
 
-     /**
+    /**
      * Método responsavél por gerar links de paginação
      */
-    public static function getPagination($request, $resultadosPaginados)
+    public static function getPagination($request, $resultadosPaginados): mixed
     {
         $currentPage = $resultadosPaginados->currentPage();
         $lastPage = $resultadosPaginados->lastPage();
@@ -147,7 +147,8 @@ class PageController
                 $page['current'] = ($i === $currentPage ? 1 : 0);
 
                 //VERIFICA O START DA PAGINAÇÃO
-                if ($page['page'] <= $start) continue;
+                if ($page['page'] <= $start)
+                    continue;
 
                 //VERIFICA O LIMITE DA PAGINAÇÃO
                 if ($page['page'] > $limit) {
@@ -164,6 +165,8 @@ class PageController
                 'links' => $links,
             ]);
         }
+
+        return '';
     }
     /**
      * Método responsável de retornar conteúdo (view) da estrutura genérica de página do painel

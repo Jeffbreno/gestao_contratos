@@ -12,7 +12,7 @@ class ConveniosController extends PageController
     /**
      * Método reponsável por retornar mensagem de status
      */
-    private static function getStatus(Request $request)
+    private static function getStatus(Request $request): string
     {
         #QUERY PARAMS
         $queryParams = $request->getQueryParams();
@@ -187,7 +187,7 @@ class ConveniosController extends PageController
         return parent::getPainel('Editar Convênio', $content, 'convenios');
     }
 
-    public static function setEditConvenio(Request $request, int $id)
+    public static function setEditConvenio(Request $request, int $id): void
     {
         $obConvenio = EntityConvenios::find($id);
         #POST VARS
@@ -208,9 +208,9 @@ class ConveniosController extends PageController
         // ATUALIZAR DADOS
         try {
             $obConvenio->update();
-            return $request->getRouter()->redirect('/convenios/' . $id . '/edit?status=update');
+            $request->getRouter()->redirect('/convenios/' . $id . '/edit?status=update');
         } catch (\Exception $e) {
-            return $request->getRouter()->redirect('/convenios/' . $id . '/edit?status=error');
+            $request->getRouter()->redirect('/convenios/' . $id . '/edit?status=error');
         }
     }
 
@@ -237,7 +237,7 @@ class ConveniosController extends PageController
     /**
      * Método responsável por excluir um convênio
      */
-    public static function setDeleteConvenio(Request $request, int $id)
+    public static function setDeleteConvenio(Request $request, int $id): void
     {
         $obConvenio = EntityConvenios::find($id);
 
@@ -248,9 +248,9 @@ class ConveniosController extends PageController
         // EXCLUIR CONVÊNIO
         try {
             $obConvenio->delete();
-            return $request->getRouter()->redirect('/convenios?status=deleted');
+            $request->getRouter()->redirect('/convenios?status=deleted');
         } catch (\Exception $e) {
-            return $request->getRouter()->redirect('/convenios?status=error');
+            $request->getRouter()->redirect('/convenios?status=error');
         }
     }
 }

@@ -12,7 +12,7 @@ class ContratosController extends PageController
     /**
      * Método responsável por retornar mensagem de status
      */
-    private static function getStatus(Request $request)
+    private static function getStatus(Request $request): string
     {
         #QUERY PARAMS
         $queryParams = $request->getQueryParams();
@@ -187,7 +187,7 @@ class ContratosController extends PageController
         return parent::getPainel('Editar Contrato', $content, 'contratos');
     }
 
-    public static function setEditContrato(Request $request, int $id)
+    public static function setEditContrato(Request $request, int $id): void
     {
         $obContrato = EntityContratos::find($id);
         #POST VARS
@@ -213,9 +213,9 @@ class ContratosController extends PageController
         // ATUALIZAR DADOS
         try {
             $obContrato->update();
-            return $request->getRouter()->redirect('/contratos/' . $id . '/edit?status=update');
+            $request->getRouter()->redirect('/contratos/' . $id . '/edit?status=update');
         } catch (\Exception $e) {
-            return $request->getRouter()->redirect('/contratos/' . $id . '/edit?status=error');
+            $request->getRouter()->redirect('/contratos/' . $id . '/edit?status=error');
         }
     }
 
@@ -239,7 +239,7 @@ class ContratosController extends PageController
         return parent::getPainel('Excluir Contrato', $content, 'contratos');
     }
 
-    public static function setDeleteContrato(Request $request, int $id)
+    public static function setDeleteContrato(Request $request, int $id): void
     {
         $obContrato = EntityContratos::find($id);
 
@@ -250,9 +250,9 @@ class ContratosController extends PageController
         // EXCLUIR DADOS
         try {
             $obContrato->delete();
-            return $request->getRouter()->redirect('/contratos?status=deleted');
+            $request->getRouter()->redirect('/contratos?status=deleted');
         } catch (\Exception $e) {
-            return $request->getRouter()->redirect('/contratos?status=error');
+            $request->getRouter()->redirect('/contratos?status=error');
         }
     }
 }

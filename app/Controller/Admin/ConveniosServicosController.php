@@ -225,7 +225,7 @@ class ConveniosServicosController extends PageController
     /**
      * Método responsável por excluir um serviço
      */
-    public static function setDeleteConvenioServico(Request $request, int $id)
+    public static function setDeleteConvenioServico(Request $request, int $id): void
     {
         $obServico = EntityConvenioServico::find($id);
 
@@ -236,9 +236,9 @@ class ConveniosServicosController extends PageController
         // EXCLUIR SERVIÇO
         try {
             $obServico->delete();
-            return $request->getRouter()->redirect('/convenios-servicos?status=deleted');
+            $request->getRouter()->redirect('/convenios-servicos?status=deleted');
         } catch (\Exception $e) {
-            return $request->getRouter()->redirect('/convenios-servicos?status=error');
+            $request->getRouter()->redirect('/convenios-servicos?status=error');
         }
     }
 }

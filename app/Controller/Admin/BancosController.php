@@ -13,7 +13,7 @@ class BancosController extends PageController
      * Método reponsável por retornar mensagem de status
      *
      */
-    private static function getStatus(Request $request)
+    private static function getStatus(Request $request): string
     {
         #QUERY PARAMS
         $queryParams = $request->getQueryParams();
@@ -37,12 +37,12 @@ class BancosController extends PageController
     }
 
     /** 
-     * Método responsável por obter a renderização dos itens de depoimentos para a página
+     * Método responsável por obter a renderização dos itens de BANCOS para a página
      * 
      */
     private static function getBancoItems(Request $request, &$obPagination): string
     {
-        //DEPOIMENTOS
+        //BANCOS
         $resultItems = '';
 
         // RESULTADO DA PÁGINA
@@ -59,7 +59,7 @@ class BancosController extends PageController
             ]);
         }
 
-        //RETORNA OS DEPOIMENTOS
+        //RETORNA OS BANCOS
         return $resultItems;
     }
 
@@ -69,7 +69,7 @@ class BancosController extends PageController
      */
     public static function getBancos(Request $request): string
     {
-        #CONTEÚDO DA HOME DE DEPOIMENTOS
+        #CONTEÚDO DA HOME DE BANCOS
         $content = View::render('pages/bancos/index', [
             'botaolink' => URL . '/bancos/new',
             'nomebotao' => 'Cadastrar novo banco',
@@ -89,7 +89,7 @@ class BancosController extends PageController
     public static function getNewBanco(Request $request): string
     {
 
-        #CONTEÚDO DA HOME DE DEPOIMENTOS
+        #CONTEÚDO DA HOME DE BANCOS
         $content = View::render('pages/bancos/form', [
             'nome' => null,
             'status' => self::getStatus($request)
@@ -118,9 +118,9 @@ class BancosController extends PageController
         //CADASTRAR DADOS
         try {
             $obBanco->save();
-            return $request->getRouter()->redirect('//bancos/' . $obBanco->codigo . '/edit?status=update');
+            return $request->getRouter()->redirect('/bancos/' . $obBanco->codigo . '/edit?status=update');
         } catch (\Exception $e) {
-            return $request->getRouter()->redirect('//bancos/' . $obBanco->codigo . '/edit?status=error');
+            return $request->getRouter()->redirect('/bancos/' . $obBanco->codigo . '/edit?status=error');
         }
     }
 
@@ -136,7 +136,7 @@ class BancosController extends PageController
             $request->getRouter()->redirect('/bancos');
         }
 
-        #CONTEÚDO DA HOME DE DEPOIMENTOS
+        #CONTEÚDO DA HOME DE BANCOS
         $content = View::render('pages/bancos/form', [
             'nome' => $obBanco->nome,
             'status' => self::getStatus($request)
@@ -181,7 +181,7 @@ class BancosController extends PageController
             $request->getRouter()->redirect('/bancos');
         }
 
-        #CONTEÚDO DA HOME DE DEPOIMENTOS
+        #CONTEÚDO DA HOME DE BANCOS
         $content = View::render('pages/bancos/delete', [
             'title' => 'Excluir Registro',
             'nome' => $obBanco->nome,
@@ -191,9 +191,8 @@ class BancosController extends PageController
 
     /**
      * Método responsavel por excluir um depoimento
-     * @return void
      */
-    public static function setDeleteBanco(Request $request, int $id)
+    public static function setDeleteBanco(Request $request, int $id): void
     {
         $obBanco = EntityBancos::find($id);
 
@@ -211,17 +210,16 @@ class BancosController extends PageController
         //ATUALIZAR DADOS
         try {
             $obBanco->delete();
-            return $request->getRouter()->redirect('/bancos?status=update?pag=' . $currentPage);
+            $request->getRouter()->redirect('/bancos?status=update?pag=' . $currentPage);
         } catch (\Exception $e) {
-            return $request->getRouter()->redirect('/bancos?status=error?pag=' . $currentPage);
+            $request->getRouter()->redirect('/bancos?status=error?pag=' . $currentPage);
         }
     }
 
     /**
      * Método responsavel por excluir um depoimento
-     * @return void
      */
-    public static function setStatusPag(Request $request, int $id)
+    public static function setStatusPag(Request $request, int $id): void
     {
         $obBanco = EntityBancos::find($id);
 
@@ -238,9 +236,9 @@ class BancosController extends PageController
         //ATUALIZAR DADOS
         try {
             $obBanco->update();
-            return $request->getRouter()->redirect('/bancos?status=update?pag=' . $currentPage);
+            $request->getRouter()->redirect('/bancos?status=update?pag=' . $currentPage);
         } catch (\Exception $e) {
-            return $request->getRouter()->redirect('/bancos?status=error?pag=' . $currentPage);
+            $request->getRouter()->redirect('/bancos?status=error?pag=' . $currentPage);
         }
     }
 }
