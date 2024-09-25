@@ -13,15 +13,6 @@ $obRouter->get('/bancos', [
     }
 ]);
 
-//ROTA DA LISTAGEM DE DEPOIMENTOS
-$obRouter->get('/bancos/visualizar/{id}', [
-    'middlewares' => [
-        'required-admin-login'
-    ],
-    function ($id) {
-        return new Response(200, Admin\BancosController::getModal($id));
-    }
-]);
 
 //ROTA DE CADASTRO DE DEPOIMENTOS
 $obRouter->get('/bancos/new', [

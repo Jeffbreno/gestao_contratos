@@ -13,15 +13,6 @@ $obRouter->get('/convenios', [
     }
 ]);
 
-// ROTA DA VISUALIZAÇÃO DE UM CONVÊNIO ESPECÍFICO (AJUSTE SE PRECISAR DE UM MODAL, SIMILAR AO BANCO)
-$obRouter->get('/convenios/visualizar/{id}', [
-    'middlewares' => [
-        'required-admin-login'
-    ],
-    function ($id) {
-        return new Response(200, Admin\ConveniosController::getModal($id)); // Certifique-se de implementar o método getModal se necessário
-    }
-]);
 
 // ROTA DE CADASTRO DE CONVÊNIOS (FORMULÁRIO)
 $obRouter->get('/convenios/new', [

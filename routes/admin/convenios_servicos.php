@@ -13,15 +13,6 @@ $obRouter->get('/convenios-servicos', [
     }
 ]);
 
-// ROTA DA VISUALIZAÇÃO DE UM SERVIÇO ESPECÍFICO
-$obRouter->get('/convenios-servicos/visualizar/{id}', [
-    'middlewares' => [
-        'required-admin-login'
-    ],
-    function ($id) {
-        return new Response(200, Admin\ConveniosServicosController::getModal($id)); // Certifique-se de implementar o método getModal se necessário
-    }
-]);
 
 // ROTA DE CADASTRO DE SERVIÇOS (FORMULÁRIO)
 $obRouter->get('/convenios-servicos/new', [

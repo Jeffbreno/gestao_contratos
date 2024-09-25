@@ -13,16 +13,6 @@ $obRouter->get('/contratos', [
     }
 ]);
 
-// ROTA DA VISUALIZAÇÃO DE UM CONTRATO ESPECÍFICO
-$obRouter->get('/contratos/visualizar/{id}', [
-    'middlewares' => [
-        'required-admin-login'
-    ],
-    function ($id) {
-        return new Response(200, Admin\ContratosController::getModal($id)); // Certifique-se de implementar o método getModal se necessário
-    }
-]);
-
 // ROTA DE CADASTRO DE CONTRATOS (FORMULÁRIO)
 $obRouter->get('/contratos/new', [
     'middlewares' => [
